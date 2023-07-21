@@ -99,6 +99,13 @@ class IngredientController extends AbstractController
         ]);
     }
 
+    /**
+     * This controller delete an ingredient
+     *
+     * @param EntityManagerInterface $manager
+     * @param int $id
+     * @return Response
+     */
     #[Route('/ingredient/suppression/{id}', 'ingredient.delete', methods: ['GET'])]
     public function delete(EntityManagerInterface $manager, int $id) : Response
     {
