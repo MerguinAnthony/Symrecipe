@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[UniqueEntity(fields: ['name'])]
+#[UniqueEntity('name')]
 #[ORM\HasLifecycleCallbacks()]
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
 class Recipe
@@ -53,7 +53,7 @@ class Recipe
 
     #[ORM\Column]
     #[Assert\NotNull()]
-    private ?\DateTimeImmutable $createAt = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
 
     #[ORM\Column]
@@ -66,7 +66,7 @@ class Recipe
     public function __construct()
     {
         $this->ingredients = new ArrayCollection();
-        $this->createAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
         $this->updateAt = new \DateTimeImmutable();
     }
 
@@ -165,14 +165,14 @@ class Recipe
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTimeImmutable $createAt): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

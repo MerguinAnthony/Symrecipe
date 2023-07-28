@@ -1,3 +1,8 @@
 controllers:
-    resource: ../src/Controller/
-    type: attribute
+  resource: ../src/Controller/
+  type: attribute
+# config/routes.yaml
+recipe_delete:
+  path: "/recipe/{id}"
+  controller: 'App\Controller\RecipeController::delete'
+  methods: DELETE
